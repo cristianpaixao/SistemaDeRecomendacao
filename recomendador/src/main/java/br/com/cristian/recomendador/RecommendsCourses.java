@@ -8,11 +8,11 @@ import org.apache.mahout.cf.taste.model.DataModel;
 import org.apache.mahout.cf.taste.recommender.RecommendedItem;
 import org.apache.mahout.cf.taste.recommender.Recommender;
 
-public class RecomendaCursos {
+public class RecommendsCourses {
 	public static void main(String[] args) throws IOException, TasteException {
-		DataModel cursos = new Recomendador().getModelo("cursos.csv");
+		DataModel courses = new Adviser().getModel("cursos.csv");
 		
-		Recommender recommender = new RecomendadorBuilder().buildRecommender(cursos);
+		Recommender recommender = new AdviserBuilder().buildRecommender(courses);
 		
 		List<RecommendedItem> recommendations = recommender.recommend(1, 6);
 		

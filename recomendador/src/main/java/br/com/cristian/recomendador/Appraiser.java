@@ -9,16 +9,21 @@ import org.apache.mahout.cf.taste.impl.eval.AverageAbsoluteDifferenceRecommender
 import org.apache.mahout.cf.taste.model.DataModel;
 import org.apache.mahout.common.RandomUtils;
 
-public class Avaliador {
+/**
+ * This class tests the model in the algorithm, returning the margin of error of the algorithm
+ * 
+ * @author Cristian Paixão
+ */
+public class Appraiser {
 
 	public static void main(String[] args) throws TasteException, IOException {
 		RandomUtils.useTestSeed();
-		DataModel produtos = new Recomendador().getModelo("cursos.csv");
+		DataModel modelToTest = new Adviser().getModel("cursos.csv");
 			
-		RecommenderBuilder builder = new RecomendadorBuilder();
+		RecommenderBuilder builder = new AdviserBuilder();
 		RecommenderEvaluator evaluator = new AverageAbsoluteDifferenceRecommenderEvaluator();
-		double erro = evaluator.evaluate(builder, null, produtos, 0.9, 1.0);
+		double marginError = evaluator.evaluate(builder, null, modelToTest, 0.9, 1.0);
 		
-		System.out.println(erro);
+		System.out.println(marginError);
 	}
 }
